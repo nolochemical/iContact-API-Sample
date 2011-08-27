@@ -1,10 +1,31 @@
 <?php
-/*
- * We used this this curl class as a stepping stone; yet its always advisable to trim or expand upon it
- * were necessary.You will need to login to down. 
+/* 
+ * Copyright (c) 2011 Victor Phelemba
  * 
- * Its open source.[ http://phpclasses.cfappsinc.ca/browse/file/7871.html ]
-*/
+ * samplefish is free software: you can redistribute it and/or modify
+ * 
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ * 
+ * samplefish is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with samplefish. If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * samplefish.phps *
+ * 
+ * We used this old curl class as a stepping stone; yet its always 
+ * advisable to trim or expand upon it were necessary.Its also 
+ * open source.
+ * 
+ * [ Dick Munroe (munroe AT csworks.com)]
+ * [ http://phpclasses.cfappsinc.ca/browse/file/7871.html ]
+ * 
+ */
+ 
 include "class.curl.php";
 
 $api_base_path = 'https://app.sandbox.icontact.com/icp';
@@ -49,8 +70,10 @@ $c->setopt(CURLOPT_FOLLOWLOCATION, true) ;
 $c->setopt(CURLOPT_HTTPHEADER, $ac['headers']) ;
 $c->setopt(CURLOPT_HEADER, true);
 $c->setopt(CURLOPT_RETURNTRANSFER, true);
-$c->setopt(CURLOPT_SSL_VERIFYHOST, true);  // False - Yes I know who I am, do you know who you are?
-$c->setopt(CURLOPT_SSL_VERIFYPEER, false); // Essentialy your bypassing secure peer check - is there an ssl cert on the other side?
+// Yes I know who I am, do you know who you are?
+$c->setopt(CURLOPT_SSL_VERIFYHOST, true); 
+// Essentialy your bypassing secure peer check - Live vs Testing Modes
+$c->setopt(CURLOPT_SSL_VERIFYPEER, false); 
 
 switch ($ac['method']) {
 	case 'POST':
